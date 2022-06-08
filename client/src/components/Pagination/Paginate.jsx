@@ -1,4 +1,5 @@
 import React from "react";
+import "./paginate.css";
 
 export default function Paginate({ countriesPerPage, allCountries, paginate }) {
   const pageNumbers = [];
@@ -18,4 +19,3 @@ export default function Paginate({ countriesPerPage, allCountries, paginate }) {
     </div>
   );
 }
- 

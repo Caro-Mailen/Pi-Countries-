@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { apiLoadDb } = require("../helper/data");
+// const { apiLoadDb } = require("../helper/data");
 const { Country } = require("../db");
 const { Activity } = require("../db");
 const { Op } = require("sequelize");
@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 
   if (name) {
     const countryInfo = await Country.findAll({
-      include: { model: Activity },
+      include: { model: Activity }, //agregue attributes : name
       where: {
         name: {
           [Op.iLike]: `%${name}%`,
@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
     res.status(200).json(countryInfo);
   } else {
     const CountryAll = await Country.findAll({
-      includes: Activity,
+      include: { model: Activity },
     });
     res.status(200).json(CountryAll);
   }

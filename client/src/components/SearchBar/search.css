@@ -1,0 +1,20 @@
+.search_bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.search_bar input {
+  all: unset;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+.search_bar input::placeholder {
+  color: #fff;
+}
+.search_bar button {
+  border-radius: 5px;
+  border: 3px;
+  background-color: #ab3853;
+  color: #fff;
+  cursor: pointer;
+}

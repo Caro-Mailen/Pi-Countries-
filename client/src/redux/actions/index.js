@@ -2,9 +2,10 @@ import axios from "axios";
 
 const GET_COUNTRIES = "GET_COUNTRIES";
 const GET_BY_NAME = "GET_BY_NAME";
-
+const GET_BY_ID = "GET_BY_ID";
+const FILTER_ACTIVITIY = "FILTER_ACTIVITIY";
 const FILTER_CONTINENT = "FILTER_CONTINENT";
-// const FILTER_ACTIVITY = "FILTER_ACTIVITY";
+const GET_ACTIVITIES = "GET_ACTIVITIES";
 const ORDER_BY_NAME = "ORDER_BY_NAME";
 const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 
@@ -31,37 +32,43 @@ export function getByName(name) {
         payload: json.data, //es necesario un catch??
       });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 }
 
 export function postActivity(payload) {
   return async function () {
-    const json = await axios.post("http://localhost:3001/activity", payload);
-    console.log(json);
-    return json;
+    console.log({ payload });
+    axios.post("http://localhost:3001/activity", payload);
   };
 }
 
-// [ ] Botones/Opciones para filtrar por continente
+export function getById(id) {
+  return async function (dispatch) {
+    const json = await axios.get("http://localhost:3001/countries/" + id);
+    dispatch({ type: GET_BY_ID, payload: json.data });
+  };
+}
 
 export function filterByContinent(payload) {
-  console.log(payload);
+  // console.log(payload);
   return {
     type: FILTER_CONTINENT,
     payload,
   };
 }
 
-// [ ] Botones/Opciones para filtrar por tipo de actividad turística
+export function getActivities(payload) {
+  return async function (dispatch) {
+    const json = await axios.get("http://localhost:3001/activity");
+    dispatch({ type: GET_ACTIVITIES, payload: json.data });
+  };
+}
 
-// export function filterActivity(payload) {
-//   return {
-//     type: FILTER_ACTIVITY,
-//     payload,
-//   };
-// }
+export function filterByActivity(payload) {
+  return { type: FILTER_ACTIVITIY, payload };
+}
 
 export function orderByName(payload) {
   return {

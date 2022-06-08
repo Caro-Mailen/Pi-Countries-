@@ -1,0 +1,44 @@
+.flag {
+  width: 350px;
+  height: 250px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 400px 300px 1fr;
+  width: 90%;
+  margin: 0 auto;
+  height: calc(100vh - 149px);
+}
+
+.detail_header {
+  background-color: #205287;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 30px;
+  margin-bottom: 40px;
+  height: 60px;
+}
+.detail__title {
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+.detail_header button {
+  margin-bottom: 2px;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  background-color: #205287;
+  color: #fff;
+}
+.activity {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.activity li {
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.85);
+  list-style: none;
+  text-transform: capitalize;
+}

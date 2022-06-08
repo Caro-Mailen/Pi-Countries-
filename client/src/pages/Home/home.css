@@ -1,0 +1,84 @@
+#app {
+  background-color: #9eb8d3;
+}
+
+h1 {
+  color: #ffffff;
+  display: flex;
+  place-content: center;
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+.filters div select {
+  all: unset;
+  margin: 0 10px;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  padding: 4px 10px;
+}
+.filters div select option {
+  background-color: #9eb8d3;
+  color: #ffffff;
+}
+
+.reset_button {
+  margin-left: 20px;
+  all: unset;
+}
+.reset_button svg {
+  width: 20px;
+  height: 20px;
+  color: rgb(249, 52, 52);
+  transform: translateY(5px);
+  cursor: pointer;
+}
+.button__back {
+  margin-left: 20px;
+  all: unset;
+}
+.button__back svg {
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  transform: translateY(7px);
+  cursor: pointer;
+}
+
+header {
+  background-color: #205287;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  margin-bottom: 40px;
+}
+
+.button1 {
+  margin-bottom: 2px;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  background-color: #205287;
+  color: #fff;
+  padding: 10px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.button1 :any-link {
+  color: #fff;
+}
+.cards {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  place-content: center;
+}
+.container__home {
+  padding: 20px;
+  min-height: 76.6vh;
+}

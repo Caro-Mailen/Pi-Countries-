@@ -1,0 +1,9 @@
+.pagination button {
+  border-radius: 5px;
+  border: 3px;
+  background-color: #ab3853;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 12px;
+  font-weight: bold;
+}

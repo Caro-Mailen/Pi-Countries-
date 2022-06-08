@@ -1,8 +1,10 @@
-import { sortBy } from "./utils";
+import { sortBy } from "../../utils";
 
 const initialState = {
   countries: [],
-  allCountries: [], //copia del estado q siempre va a tener todo, soporte
+  allCountries: [],
+  country: [],
+  activity: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -22,6 +24,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
       };
+    case "GET_BY_ID":
+      return {
+        ...state,
+        country: action.payload,
+      };
     case "FILTER_CONTINENT":
       const allCountries = state.allCountries;
       const filtered =
@@ -34,14 +41,28 @@ function rootReducer(state = initialState, action) {
         ...state,
         countries: filtered,
       };
-    // case 'FILTER_ACTIVITY':
-    //   const activity = action.payload
+    case "GET_ACTIVITIES":
+      return {
+        ...state,
+        activity: action.payload,
+      };
+
+    case "FILTER_ACTIVITIY":
+      const filterCountryByActivity = state.allCountries.filter((country) => {
+        return country.Activities.some((act) => act.name === action.payload);
+      });
+      return {
+        ...state,
+        countries: filterCountryByActivity,
+      };
+
     case "ORDER_BY_NAME":
       return {
         ...state,
-        countries:  action.payload === "asc"
-        ? sortBy(state.countries, "name", "asc")
-        : sortBy(state.countries, "name", "desc")
+        countries:
+          action.payload === "asc"
+            ? sortBy(state.countries, "name", "asc")
+            : sortBy(state.countries, "name", "desc"),
       };
 
     case "ORDER_BY_POPULATION":
