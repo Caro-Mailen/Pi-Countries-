@@ -25,7 +25,7 @@ export default function ActivityCreate() {
   useEffect(() => {
     dispatch(getCountries());
     dispatch(getActivities());
-  }, [dispatch]); //sacar el dispatch
+  }, [dispatch]);
 
   function handleOnChange(e) {
     setDataInput({
@@ -153,7 +153,11 @@ export default function ActivityCreate() {
               ))}
           </select>
         </div>
-        {error && <span>ya existe</span>}
+        {error && (
+          <span className="error">
+            This activity has already been created!!
+          </span>
+        )}
         <div className="button_div">
           <button className="button_create" type="submit">
             Create

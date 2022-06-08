@@ -21,7 +21,6 @@ export default function Detail() {
 
   useEffect(() => {
     dispatch(getById(idParams));
-    // eslint-disable-next-line
   }, []);
 
   return (

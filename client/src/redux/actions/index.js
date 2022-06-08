@@ -12,7 +12,7 @@ const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 export function getCountries() {
   return async function (dispatch) {
     const json = await axios.get("http://localhost:3001/countries");
-    // console.log("DATA: " + json.data);
+
     return dispatch({
       type: GET_COUNTRIES,
       payload: json.data,
@@ -26,14 +26,12 @@ export function getByName(name) {
       const json = await axios.get(
         "http://localhost:3001/countries?name=" + name
       );
-      // console.log("DATA " + json.data);
+
       return dispatch({
         type: GET_BY_NAME,
-        payload: json.data, //es necesario un catch??
+        payload: json.data,
       });
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 }
 
@@ -52,7 +50,6 @@ export function getById(id) {
 }
 
 export function filterByContinent(payload) {
-  // console.log(payload);
   return {
     type: FILTER_CONTINENT,
     payload,
